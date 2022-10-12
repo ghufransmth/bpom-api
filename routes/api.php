@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\API\{AnggotaController, LoginController, UserController};
+use App\Http\Controllers\API\{AnggotaController, LoginController, UserController, ProductController, ScanController};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,5 +21,7 @@ Route::prefix('v1')->group(function () {
         Route::post('logon/security', [LoginController::class, 'LogonCodeSecurity']);
         Route::post('list/anggota', [AnggotaController::class, 'list']);
         Route::get('user/profile', [UserController::class, 'profile']);
+        Route::post('product/detail', [ProductController::class, 'productDetail']);
+        Route::post('scan/history', [ScanController::class, 'scanHistory']);
     });
 });

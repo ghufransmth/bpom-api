@@ -10,9 +10,10 @@ class BaseController extends Controller
     public function successResponse($result, $message)
     {
         $response = [
+            'code'    => 200,
             'success' => true,
-            'data'    => $result,
             'message' => $message,
+            'data'    => $result,
         ];
 
         return response()->json($response, 200);
@@ -47,6 +48,7 @@ class BaseController extends Controller
     {
 
         $response = [
+            'code'    => 500,
             'success' => false,
             'message' => $error->getMessage() . ' on the line ' . $error->getLine(),
         ];
